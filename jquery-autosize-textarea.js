@@ -1,7 +1,7 @@
-// JQUERY
+// jQuery
 ;(function($){    
   $.fn.autosizeTextarea = function(lineHeight,  padding) {
-    this.on('input propertychange', autoSize);
+    this.on('input', autoSize);
     const TEXTAREA_CONFIG = {
       LINE_HEIGHT: lineHeight || 13, // adjust textarea lineheight
       PADDING: padding || 0  // adjust textarea vertical padding
@@ -10,15 +10,14 @@
       let $this = $(this)
       if ($this.length) {
         $this.attr('rows', 2) // minimum rows
-        const height = parseInt(
+        const rowsRequired = parseInt(
           (this.scrollHeight - TEXTAREA_CONFIG.PADDING) / TEXTAREA_CONFIG.LINE_HEIGHT
         )
-        if (height !== parseInt($this.attr('rows'))) {
-          $this.attr('rows', height)
+        if (rowsRequired !== parseInt($this.attr('rows'))) {
+          $this.attr('rows', rowsRequired)
         }
       }
     }
   };
 })(jQuery)
 
-$('#autosize-textarea').autosizeTextarea(15, 10)

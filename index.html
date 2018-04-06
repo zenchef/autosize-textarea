@@ -1,12 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-      <title>autosize-textarea</title>
-      <meta charset="utf-8">
-      <meta name="description" content="Small snippet in order to autosize a textarea while typing">
-  </head>
-  <body>
-      <textarea id="autosize-textarea"></textarea>
-      <script type="text/javascript" src="./pure-autosize-textarea.js"></script>
-  </body>
+
+<head>
+    <title>autosize-textarea</title>
+    <meta charset="utf-8">
+    <meta name="description" content="Small snippet in order to autosize a textarea while typing">
+</head>
+
+<body>
+    <textarea rows="2" id="autosize-textarea"></textarea>
+    <!-- Uncomment for jQuery use -->
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script> -->
+    <!-- <script type="text/javascript" src="./jquery-autosize-textarea.js"></script> -->
+    <script type="text/javascript" src="./pure-autosize-textarea.js"></script>
+    <script>
+        // Uncomment for jQuery use
+        // $('#autosize-textarea').autosizeTextarea(13, 0)
+        const element = document.querySelector('#autosize-textarea')
+        element.addEventListener('input', autoSize, false);
+        const TEXTAREA_CONFIG = {
+            LINE_HEIGHT: 13, // adjust textarea lineheight
+            PADDING: 0  // adjust textarea padding vertical
+        }
+    </script>
+</body>
+
 </html>
